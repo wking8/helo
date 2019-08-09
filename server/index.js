@@ -7,4 +7,8 @@ const app = express()
 
 app.use(express.json())
 
-app.listen(PORT, () => console.log(`${PORT} panic attacks so far.`))
+massive(CONNECTION_STRING)
+    .then(db => {
+        app.set('db', db)
+        app.listen(PORT, () => console.log(`${PORT} panic attacks so far.`))
+    })
