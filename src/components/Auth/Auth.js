@@ -9,14 +9,14 @@ class Auth extends Component {
         username: '',
         password: ''
     }
-    handleChange  (e) => {
+    handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
     registerUser = () => {
         const {
-            usernameInput: username,
+            usernameInput: username,    
             passwordInput: password
         } = this.state
         axios.post('/auth/register', { username, password })

@@ -1,6 +1,7 @@
 const initialState = {
     username: '',
-    password: ''
+    id: '',
+    profilePic: ''
 }
 
 // Actions
