@@ -1,2 +1,4 @@
-SELECT * FROM users
-WHERE username = $1;
+select * 
+from users 
+where username = ${username} 
+and password = ${password};

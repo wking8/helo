@@ -20,6 +20,9 @@ app.use(session({
 // Endpoints
 app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
+app.get('/api/posts', authCtrl.getPosts)
+app.post('/api/posts/addpost', authCtrl.addPost)
+app.get("/api/posts/:postid", authCtrl.getPost)
 
 
 // Database and nodemon connection
@@ -27,4 +30,7 @@ massive(CONNECTION_STRING)
     .then(db => {
         app.set('db', db)
         app.listen(PORT, () => console.log(`${PORT} panic attacks so far.`))
+    })
+    .catch(err => {
+        console.log('database not connected', err)
     })

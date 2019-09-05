@@ -1,11 +1,12 @@
 const initialState = {
     username: '',
     id: '',
-    profilePic: ''
+    profile_pic: ''
 }
 
 // Actions
 const SET_USER = 'SET_USER'
+
 
 // builders
 export function setUser(user) {
@@ -14,15 +15,13 @@ export function setUser(user) {
         payload: user
     }
 }
-
-
 // Reducer 
 export default (state = initialState, action) => {
     const { type, payload } = action
     switch (type) {
         case SET_USER:
-            const { username, password } = payload
-            return { ...state, username, password }
+            const { username, id, profile_pic } = payload
+            return { ...state, username, id, profile_pic }
         default: return state
     }
 }
